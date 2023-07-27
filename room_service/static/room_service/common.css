@@ -1,0 +1,187 @@
+
+.custom-font {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+}
+
+.custom-navbar {
+    margin-bottom: 0px;
+    border: 0px;
+}
+
+.custom-card {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.btn-custom {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    
+    background-color: #ffffff; /* button background color */
+    color: #000000; /* button text color */
+
+    font-size: 100%; /* text size */
+    margin-left: 0%; /* added left margin */
+    border: 1px solid #636363;
+
+    padding: 0.5em 0.5em; /* adjust as needed */
+    margin-top: 0.5px; /* adjust as needed */
+    margin-bottom: 0.5px; /* adjust as needed */
+    width: 150px; /* adjust as needed */
+}
+
+.order-button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    
+    background-color: #3e2b2c; /* button background color */
+    color: #ffffff; /* button text color */
+
+    font-size: 100%; /* text size */
+    margin-left: 0%; /* added left margin */
+    border: 1px solid #3e2b2c;
+
+    padding: 0.5em 0.5em; /* adjust as needed */
+    margin-top: 0.5px; /* adjust as needed */
+    margin-bottom: 0.5px; /* adjust as needed */
+    width: 150px; /* adjust as needed */
+}
+
+/* 체크박스 */
+.item-checkbox {
+    position: absolute;
+    top: 10px;  /* Adjust as needed */
+    right: 10px;  /* Adjust as needed */
+    transform: scale(1.5);  /* Increase the size of the checkbox */
+}
+
+
+.my-button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    
+    background-color: #3e2b2c; /* button background color */
+    color: #ffffff; /* button text color */
+
+    font-size: 100%; /* text size */
+    margin-left: 0%; /* added left margin */
+    border: 0% solid #3e2b2c;
+
+    padding: auto; /* adjust as needed */
+    margin-top: auto; /* adjust as needed */
+    margin-bottom: auto; /* adjust as needed */
+    width: 100%; /* adjust as needed */
+}
+
+
+.my-button_b {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+
+    background-color: #747474; /* button background color */
+    color: #ffffff; /* button text color */
+
+    font-size: 100%; /* text size */
+    margin-left: 0%; /* added left margin */
+    border: 2px solid #747474;
+
+    padding: 1em 1; /* adjust as needed */
+    margin-top: 2px; /* adjust as needed */
+    margin-bottom: 2px; /* adjust as needed */
+}
+
+
+.garo_button {
+    background-color: #3e2b2c; /* button background color */
+    color: #ffffff; /* button text color */
+    padding: 5%; /* button internal margin (top/bottom 2%, left/right 2%) */
+    font-size: 90%; /* text size */
+    margin-left: 0%; /* added left margin */
+    border: 2px solid #3e2b2c;
+}
+
+
+
+.my-card {
+    margin-bottom: 50%;  /* set the bottom margin between cards to 1% */
+}
+
+.lang-img {
+    width: 100%;
+    height: auto;
+}
+
+/* 상품 */
+.card-img-top {
+    width: 100%; 
+    height: auto; 
+}
+
+.large-font {
+    font-family: 'Roboto', sans-serif;
+    font-weight: medium;
+    font-size: 20px; /* text size */
+    color: #555555; /* 제목 폰트 컬러 */
+    margin-bottom: 5%;
+}
+
+.card-title {   
+    font-size: 100%; /* text size */
+    color: #555555; /* 제목 폰트 컬러 */
+    font-weight: bold;
+    margin-bottom: 1%;
+}
+.card-text {
+    font-size: 95%; /* text size */
+    color: #555555; /* button text color */
+    font-weight: normal;
+    margin-bottom: 1%;
+}
+.card-price {
+    font-size: 100%; /* text size */
+    color: #3e2b2c; /* button text color */
+
+    font-weight: bold;
+    margin-bottom: 1%;
+}
+
+
+.card {
+    width: 100%;  /* adjust the width of the card */
+    height: auto;  /* adjust the height of the card automatically according to the internal content */
+    margin-bottom: 1%;
+}
+
+.card-body {
+    padding: auto;
+}
+
+.card-img-top {
+    width: 100%;  /* adjust the width of the card */
+    height: auto;  /* adjust the height of the card automatically according to the internal content */
+}
+
+/* 푸터 */
+
+.footer {    
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #615a51;
+    line-height: 2;
+}
+
+.footer p {
+    font-size: 12px;
+    color: #f1ebd6;
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+}
+
+.footer a {
+    font-size: 14px;
+    color: #fdfdfd;
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+}
