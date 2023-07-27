@@ -1,0 +1,32 @@
+<html>
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<body>
+<div class="container  mt-4 mb-4">
+        <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field|add_class:"form-control" }}
+            </div>
+            {% endfor %}
+            <div class="form-group">
+                <button class="my-button btn-sm" style="width: 100%;">확인</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="lang-img">
+    <img src="{% static '/room_service/bin_img.jpg' %}" style="width:40%; height:auto;" alt="image">
+</div>
+
+</body>
+{% endblock %}
+</html>
