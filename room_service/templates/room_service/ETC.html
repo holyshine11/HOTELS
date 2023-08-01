@@ -9,19 +9,21 @@
         <div class="row justify-content-center">
             {% for item in room %}
             <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                <div class="card" >
-                    <img class="card-img-top" src="{{ item.image.url }}" alt="{{ item.PRD_name }}">
-                    <div class="card-body">
-                        <div class="card-title">{{ item.PRD_name }}</div>
-                        <div class="card-text">{{ item.description }}</div>
-                        <div class="card-price text-right">{{ item.price|intcomma }} 원</div>
-                        <div class="mt-3">
-                            <a href="{% url 'room_service:ETC' item.id %}">
-                                <button class="my-button btn-sm btn-block">상세보기</button>
-                            </a>
+                <a href="{% url 'room_service:FNB' item.id %}" style="text-decoration: none; color: black;">
+                    <div class="card" >
+                        <img class="card-img-top" src="{{ item.image.url }}" alt="{{ item.PRD_name }}">
+                        <div class="card-body">
+                            <div class="card-title">{{ item.PRD_name }}</div>
+                            <div class="card-text">{{ item.description }}</div>
+                            <div class="card-price text-right">{{ item.price|intcomma }} 원</div>
+                            <div class="mt-3">
+                                <a href="{% url 'room_service:ETC' item.id %}">
+                                    <button class="my-button btn-sm btn-block">상세보기</button>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             {% endfor %}
         </div>

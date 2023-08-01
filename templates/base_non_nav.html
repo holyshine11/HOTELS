@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Load static files -->
+    {% load static %}
+    <title>{% block title %}Smart Room Service{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="{% static '/room_service/favicon.png' %}">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="{% static 'room_service/common.css' %}" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        function confirmCartMove() {
+            var r = confirm("장바구니에 상품이 담겼습니다. 장바구니로 이동 하시겠습니까?");
+            if (r == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+    
+    {% block extra_head %}{% endblock %}
+    
+    <style>
+        .custom-font {
+            font-family: 'Roboto', sans-serif;
+            font-weight: normal;
+        }
+        body {
+            padding-bottom: auto; /* Height of the footer */
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: auto; /* Height of the footer */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Load static files -->
+        {% load static %}
+        <nav class="col mt-auto py-3 d-flex justify-content-center">
+            <a href="{% url 'room_service:home' %}">
+                <img src="{% static '/room_service/logo_theshilla.png' %}" width="116" height="45" alt="Logo">
+            </a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="footer mt-auto py-3">
+        <div class="text-center">
+            <p class="text-center mb-0">㈜ 호텔신라 서울특별시 중구 동호로 249(우04605) | 대표이사 이부진<br>사업자등록번호 203-81-43363 | 통신판매신고번호 중구00272호<br>서울 shilla.reserve@samsung.com | 제주 jejushilla@samsung.com<br>호스팅서비스제공자 삼성SDS㈜</p>
+            <p class="text-center mb-0"><a href="http://www.ftc.go.kr/bizCommPop.do?wrkr_no=2038143363" target="_blank">사업자정보확인 &gt;</a></p>
+        </div>
+    </footer>
+</body>
+</html>

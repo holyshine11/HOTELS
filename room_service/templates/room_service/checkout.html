@@ -1,3 +1,36 @@
-<h1> 호텔 인포메이션에 띵동 하고 나와야 됨 </h1>
-<h1> 인포메이션 관리자랑 웹 소켓 통신 할라고 함 </h1>
-<h1> 근데 언제 다 개발하냐 ㅋㅋㅋ </h1>
+{% extends "base_non_nav.html" %}
+{% block content %}
+{% load static %}
+{% load humanize %}
+
+<style>
+    body {
+        background: #f8f9fa;
+    }
+    .jumbotron {
+        background: #fff;
+        border-radius: .3rem;
+        padding: 2rem;
+    }
+    .jumbotron h1 {
+        font-size: 2.5rem;
+    }
+    .jumbotron p {
+        font-size: 1.2rem;
+    }
+</style>
+
+<body>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div class="jumbotron text-center">
+                    <h3 class="display-7">감사합니다!</h3>
+                    <p class="lead">주문이 완료되어 곧 객실로 상품을 전달해 드겠습니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

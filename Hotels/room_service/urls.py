@@ -7,7 +7,7 @@ app_name = 'room_service'
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
-    path('lang/', views.LangView.as_view(), name='lang'),
+    path('index/', views.LangView.as_view(), name='index'),
     path('room/', BathListView.as_view(), name='room'),
     path('room/<str:category>/', CategoryListView.as_view(), name='category-room'),
     path('room/FNB/<int:pk>/', FoodDetailView.as_view(), name='FNB'),
