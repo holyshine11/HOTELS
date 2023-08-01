@@ -28,6 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = ['port-0-hotels-ac2nlkrnwd6e.sel4.cloudtype.app']
+
 # Application definition
 
 INSTALLED_APPS = [
