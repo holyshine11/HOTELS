@@ -28,6 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# Update the CSRF_TRUSTED_ORIGINS to include the scheme
+CSRF_TRUSTED_ORIGINS = ['http://port-0-hotels-ac2nlkrnwd6e.sel4.cloudtype.app']
+
 
 # Application definition
 
