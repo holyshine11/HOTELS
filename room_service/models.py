@@ -1,35 +1,38 @@
+import os
 from django.db import models
 from django.contrib.sessions.models import Session
 from django.http import JsonResponse
 from django.db.models import Sum, F, DecimalField
+from django.utils.text import slugify
 
 
+def get_upload_to(instance, filename):
+    base_filename, file_extension = os.path.splitext(filename)
+    slugified_filename = slugify(base_filename)
+    new_filename = f"{slugified_filename}{file_extension}"
+
+    return os.path.join('media/', new_filename)
 
 
-# Create your models here.
 class RoomService(models.Model):
     PRD_name = models.CharField(max_length=30)
     description = models.CharField(max_length=30)
     content = models.CharField(max_length=30, default=True)
     price = models.PositiveIntegerField()
-    image = models.ImageField(upload_to='', blank=True, null=True) # nullable로 설정
-
-
+    image = models.ImageField(upload_to=get_upload_to, blank=True, null=True)
     CATEGORY_CHOICES = (
-        # 값, 출력될 텍스트
         ('FNB', 'Food&Beverage'),
         ('BAS', 'Bath Amenity'),
         ('BED', 'Bedclothes'),
         ('ETC', 'Etc'),
     )
-    category = models.CharField(max_length = 20, choices = CATEGORY_CHOICES, default='FNB')    
-    
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='FNB')    
     created_at = models.DateTimeField(null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
-   
-    
+
     def __str__(self):
         return f"{self.PRD_name} {self.description} {self.price} {self.CATEGORY_CHOICES}"
+
 
 class LangChoice(models.Model):
     LANG_CHOICES = [
@@ -47,33 +50,25 @@ class LangChoice(models.Model):
     
     room_number = models.PositiveIntegerField()
 
-from django.utils.text import slugify
 
 class Product(models.Model):
     PRD_name = models.CharField(max_length=30)
     description = models.CharField(max_length=30)
     content = models.CharField(max_length=30, default=True)
     price = models.PositiveIntegerField()
-    image = models.ImageField(upload_to='', blank=True, null=True) # nullable로 설정
-
+    image = models.ImageField(upload_to=get_upload_to, blank=True, null=True)
     CATEGORY_CHOICES = (
-        # 값, 출력될 텍스트
         ('FNB', 'Food&Beverage'),
         ('BAS', 'Bath Amenity'),
         ('BED', 'Bedclothes'),
         ('ETC', 'Etc'),
     )
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='FNB')    
-
     created_at = models.DateTimeField(null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
-   
+
     def __str__(self):
         return f"{self.PRD_name} {self.description} {self.price} {self.CATEGORY_CHOICES}"
-
-    def save(self, *args, **kwargs):
-        self.image.name = slugify(self.image.name)
-        super().save(*args, **kwargs)
 
 
 class Cart(models.Model):
@@ -81,6 +76,7 @@ class Cart(models.Model):
 
     def __str__(self):
         return f"Cart {self.id}"
+
 
 class CartItem(models.Model):
     def post(self, request, *args, **kwargs):
@@ -104,5 +100,3 @@ class CartItem(models.Model):
         total_quantity = CartItem.objects.filter(cart=cart).aggregate(total_quantity=Sum('quantity'))['total_quantity']
         total_price = CartItem.objects.filter(cart=cart).aggregate(total_price=Sum(F('quantity') * F('product__price'), output_field=DecimalField()))['total_price']
         return JsonResponse({'total_quantity': total_quantity, 'total_price': str(total_price)})
-
-
