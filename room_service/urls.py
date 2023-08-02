@@ -25,7 +25,8 @@ urlpatterns = [
     path('delete_selected/', DeleteSelectedView.as_view(), name='delete_selected'),
     path('cart/delete_selected_items/', DeleteSelectedItemsView.as_view(), name='delete_selected_items'),
     path('delete_selected_items/', DeleteSelectedItemsView.as_view(), name='delete_selected_items'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
