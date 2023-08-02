@@ -4,13 +4,16 @@ from django.http import JsonResponse
 from django.db.models import Sum, F, DecimalField
 
 
+
+
 # Create your models here.
 class RoomService(models.Model):
     PRD_name = models.CharField(max_length=30)
     description = models.CharField(max_length=30)
     content = models.CharField(max_length=30, default=True)
     price = models.PositiveIntegerField()
-    image = models.ImageField(upload_to='', blank=True)
+    image = models.ImageField(upload_to='', blank=True, null=True) # nullable로 설정
+
 
     CATEGORY_CHOICES = (
         # 값, 출력될 텍스트
@@ -44,12 +47,15 @@ class LangChoice(models.Model):
     
     room_number = models.PositiveIntegerField()
 
-class Product(models.Model):  # RoomService 모델을 Product로 변경
+from django.utils.text import slugify
+
+class Product(models.Model):
     PRD_name = models.CharField(max_length=30)
     description = models.CharField(max_length=30)
     content = models.CharField(max_length=30, default=True)
     price = models.PositiveIntegerField()
-    image = models.ImageField(upload_to='midia/image/', blank=True)
+    image = models.ImageField(upload_to='', blank=True, null=True) # nullable로 설정
+
     CATEGORY_CHOICES = (
         # 값, 출력될 텍스트
         ('FNB', 'Food&Beverage'),
@@ -64,6 +70,11 @@ class Product(models.Model):  # RoomService 모델을 Product로 변경
    
     def __str__(self):
         return f"{self.PRD_name} {self.description} {self.price} {self.CATEGORY_CHOICES}"
+
+    def save(self, *args, **kwargs):
+        self.image.name = slugify(self.image.name)
+        super().save(*args, **kwargs)
+
 
 class Cart(models.Model):
     session = models.ForeignKey(Session, on_delete=models.CASCADE)
