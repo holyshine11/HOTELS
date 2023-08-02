@@ -13,7 +13,7 @@ from django.http import JsonResponse
 from .models import Product, Cart, CartItem
 from django.views.decorators.http import require_POST
 
-
+# 클래스명 추가 #
 class HomeView(TemplateView):
     template_name = 'room_service/home.html'
     
