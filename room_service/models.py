@@ -10,7 +10,7 @@ class RoomService(models.Model):
     description = models.CharField(max_length=30)
     content = models.CharField(max_length=30, default=True)
     price = models.PositiveIntegerField()
-    image = models.ImageField(upload_to='image/', blank=True)
+    image = models.ImageField(upload_to='media/image/', blank=True)
 
     CATEGORY_CHOICES = (
         # 값, 출력될 텍스트
