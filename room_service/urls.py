@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import HomeView, BathListView, CategoryListView, FoodDetailView, BathDetailView, BedDetailView, ETCDetailView, CartView, AddToCartView, DeleteSelectedView, DeleteSelectedItemsView
+from .views import HomeView, BathListView, CategoryListView, FoodDetailView, BathDetailView, BedDetailView, ETCDetailView, CartView, AddToCartView, DeleteSelectedView, DeleteSelectedItemsView, CheckoutView
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -19,6 +19,7 @@ urlpatterns = [
     path('cart/', CartView.as_view(), name='cart'),
     path('modify_cart/<int:product_id>/', views.ModifyCartView.as_view(), name='modify_cart'),
     path('checkout/', views.CheckoutView.as_view(), name='checkout'),
+    path('checkout/', CheckoutView.as_view(), name='checkout'),
     path('remove_from_cart/<int:item_id>/', views.remove_from_cart, name='remove_from_cart'),
     path('remove_from_cart/', views.RemoveFromCartView.as_view(), name='remove_from_cart'),
     path('delete_selected/', DeleteSelectedView.as_view(), name='delete_selected'),
