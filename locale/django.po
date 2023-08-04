@@ -1,0 +1,8 @@
+msgid "VIEW SITE"
+msgstr "사이트 이동"
+
+msgid "CHANGE PASSWORD"
+msgstr "비밀번호 변경"
+
+msgid "LOG OUT"
+msgstr "로그아웃"

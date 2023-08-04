@@ -1,0 +1,15 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrahead %}
+  <style>
+    #user-tools a[href*="view_site"] {
+      display: none;
+    }
+  </style>
+{% endblock %}
+
+{% block userlinks %}
+  {{ block.super }}
+  <a href="https://port-0-hotels-ac2nlkrnwd6e.sel4.cloudtype.app/room_service/" style="margin-left: 8px;">{% translate "실서버 사이트 이동" %}</a>
+{% endblock %}

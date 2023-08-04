@@ -1,6 +1,11 @@
 from django.contrib import admin
 from .models import RoomService, LangChoice
 
+# 어드민 페이지 제목 컨트롤
+admin.site.site_header = "Roomservice Admin"  # 어드민 페이지 상단의 텍스트
+admin.site.site_title = "Roomservice Admin"   # 브라우저 탭의 제목
+admin.site.index_title = "Roomservice Admin"  # 어드민 메인 페이지의 제목
+
 class RoomServiceAdmin(admin.ModelAdmin):
     def PRD_name(self, obj):
         return obj.PRD_name
